@@ -19,39 +19,43 @@ ${right_hand_drive_yes_btn}         id=righthanddriveyes
 
 
 *** Keywords ***
-Enter Vehicle Data
-    [Arguments]    ${vehicle_type}    ${test_variant}
-    Select Options By    id=make    text    ${${vehicle_type}.${test_variant}.make}
-    Fill Text    ${engine_performance_field}    ${${vehicle_type}.${test_variant}.engine_performance}
-    Fill Text    ${date_of_manufacture_field}    ${${vehicle_type}.${test_variant}.date_of_manufacture}
-    Select Options By    ${number_of_seats_field}    text    ${${vehicle_type}.${test_variant}.number_of_seats}
-    Fill Text    ${list_price_field}    ${${vehicle_type}.${test_variant}.list_price}
-    Fill Text    ${license_plate_number_field}    ${${vehicle_type}.${test_variant}.license_plate_number}
-    Fill Text    ${annual_mileage_field}    ${${vehicle_type}.${test_variant}.annual_mileage}
-    IF    "${vehicle_type}" == "automobile"
-        Enter Vehicle Data Specific for Automobile    ${test_variant}
-    END
-    IF    "${vehicle_type}" == "truck"
-        Enter Vehicle Data Specific for Truck    ${test_variant}
-    END
-    IF    "${vehicle_type}" == "camper"
-        Enter Vehicle Data Specific for Camper    ${test_variant}
-    END
-    Click Next
-
 Enter Vehicle Data Specific for Automobile
-    [Arguments]    ${test_variant}
-    Select Options By    ${fuel_field}    text    ${automobile.${test_variant}.fuel}
+    [Arguments]    ${variant}
+    Select Options By    ${fuel_field}    text    ${automobile.${variant}.fuel}
 
 Enter Vehicle Data Specific for Truck
-    [Arguments]    ${test_variant}
-    Select Options By    ${fuel_field}    text    ${truck.${test_variant}.fuel}
-    Fill Text    ${payload_field}    ${truck.${test_variant}.payload}
-    Fill Text    ${total_weight_field}    ${truck.${test_variant}.payload}
+    [Arguments]    ${variant}
+    Select Options By    ${fuel_field}    text    ${truck.${variant}.fuel}
+    Fill Text    ${payload_field}    ${truck.${variant}.payload}
+    Fill Text    ${total_weight_field}    ${truck.${variant}.payload}
 
 Enter Vehicle Data Specific for Camper
-    [Arguments]    ${test_variant}
-    Select Options By    ${fuel_field}    text    ${camper.${test_variant}.fuel}
-    Fill Text    ${payload_field}    ${camper.${test_variant}.payload}
-    Fill Text    ${total_weight_field}    ${camper.${test_variant}.payload}
+    [Arguments]    ${variant}
+    Select Options By    ${fuel_field}    text    ${camper.${variant}.fuel}
+    Fill Text    ${payload_field}    ${camper.${variant}.payload}
+    Fill Text    ${total_weight_field}    ${camper.${variant}.payload}
     Check Checkbox    ${right_hand_drive_yes_btn}
+
+Enter Vehicle Data
+    [Arguments]    ${vehicle}    ${variant}
+    Select Options By    ${make_field}    text    ${${vehicle}.${variant}.make}
+    Fill Text    ${engine_performance_field}    ${${vehicle}.${variant}.engine_performance}
+    Fill Text    ${date_of_manufacture_field}    ${${vehicle}.${variant}.date_of_manufacture}
+    Select Options By    ${number_of_seats_field}    text    ${${vehicle}.${variant}.number_of_seats}
+    Fill Text    ${list_price_field}    ${${vehicle}.${variant}.list_price}
+    Fill Text    ${license_plate_number_field}    ${${vehicle}.${variant}.license_plate_number}
+    Fill Text    ${annual_mileage_field}    ${${vehicle}.${variant}.annual_mileage}
+    IF    "${vehicle}" == "automobile"
+        Enter Vehicle Data Specific for Automobile    ${variant}
+    END
+    IF    "${vehicle}" == "truck"
+        Enter Vehicle Data Specific for Truck    ${variant}
+    END
+    IF    "${vehicle}" == "camper"
+        Enter Vehicle Data Specific for Camper    ${variant}
+    END
+
+Enter Vehicle Data And Go Next
+    [Arguments]    ${vehicle}    ${variant}
+    Enter Vehicle Data    ${vehicle}    ${variant}
+    Click Next

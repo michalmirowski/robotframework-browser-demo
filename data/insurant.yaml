@@ -1,0 +1,15 @@
+insurant:
+  default:
+    firstname: Johnny
+    lastname: Newtest
+    birthdate: 01/01/1980
+    gender: Male
+    streetaddress: Main Street 1
+    country: Austria
+    zipcode: 1120
+    city: Vienna
+    occupation: Employee
+    hobbies:
+      - Skydiving
+      - Other
+      - Speeding

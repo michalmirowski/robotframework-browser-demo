@@ -1,16 +1,37 @@
 *** Settings ***
 Resource        common.resource
+Variables       ../data/insurant.yaml
+
+
+*** Variables ***
+# locators
+${firstname_field}          id=firstname
+${lastname_field}           id=lastname
+${birthdate_field}          id=birthdate
+${gender_rbtn}              text="Gender" >> .. >> text
+${streetaddress_field}      id=streetaddress
+${country_field}            id=country
+${zipcode_field}            id=zipcode
+${city_field}               id=city
+${occupation_field}         id=occupation
+${hobbies_checkbox}         text="Hobbies" >> .. >> text
+
 
 *** Keywords ***
 Enter Insurant Data
-    Fill Text    id=firstname    Johnny
-    Fill Text    id=lastname    Newtest    
-    Fill Text    id=birthdate    01/01/1980
-    Check Checkbox    text="Gender" >> .. >> text="Male"
-    Fill Text    id=streetaddress    Main Street 1
-    Select Options By    id=country    text    Austria
-    Fill Text    id=zipcode    1120
-    Fill Text    id=city    Vienna
-    Select Options By    id=occupation    text    Employee
-    Check Checkbox    text="Hobbies" >> .. >> text="Other"
+    [Arguments]    ${variant}
+    Fill Text    ${firstname_field}    ${insurant.${variant}.firstname}
+    Fill Text    ${lastname_field}    ${insurant.${variant}.lastname}
+    Fill Text    ${birthdate_field}    ${insurant.${variant}.birthdate}
+    Check Checkbox    ${gender_rbtn}="${insurant.${variant}.gender}"
+    Fill Text    ${streetaddress_field}    ${insurant.${variant}.streetaddress}
+    Select Options By    ${country_field}    text    ${insurant.${variant}.country}
+    Fill Text    ${zipcode_field}    ${insurant.${variant}.zipcode}
+    Fill Text    ${city_field}    ${insurant.${variant}.city}
+    Select Options By    ${occupation_field}    text    ${insurant.${variant}.occupation}
+    Check Multiple Checkboxes    ${hobbies_checkbox}    ${insurant.${variant}.hobbies}
+
+Enter Insurant Data And Go Next
+    [Arguments]    ${variant}
+    Enter Insurant Data    ${variant}
     Click Next

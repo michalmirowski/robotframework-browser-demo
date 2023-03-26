@@ -1,0 +1,8 @@
+product:
+  default:
+    insurancesum: 5.000.000,00
+    meritrating: Bonus 2
+    damageinsurance: No Coverage
+    optional_products:
+      - Euro Protection
+    courtesycar: "No"
