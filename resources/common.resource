@@ -2,15 +2,11 @@
 Library     Browser
 
 
-*** Variables ***
-${BROWSER}      chromium
-${HEADLESS}     false
-
-
 *** Keywords ***
 Open Insurance Application
     [Documentation]    Can be run on selected browser and in headless mode or not
-    New Browser    browser=${BROWSER}    headless=${HEADLESS}
+    [Arguments]    ${browser}   ${headless}
+    New Browser    browser=${browser}    headless=${headless}
     New Context    locale=en-GB
     New Page    http://sampleapp.tricentis.com/
 
