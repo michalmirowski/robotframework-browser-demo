@@ -49,11 +49,12 @@ Create Quote For Camper
     Enter User Data And Send Quote Successfully
 
 Verify Minimal Start Date Validation
-    Get Quote For Automobile
-    Enter Vehicle Data And Go Next    automobile    default
-    Enter Insurant Data And Go Next    default
+    [Setup]    Run Keywords
+    ...    Get Quote For Automobile
+    ...    AND    Enter Vehicle Data And Go Next    automobile    default
+    ...    AND    Enter Insurant Data And Go Next    default
     Enter Product Data    automobile    default    invalid_start_date=True
-    Verify Start Date Field Is Correctly Validated    # add more assertions
+    Verify Start Date Field Is Correctly Validated
     Verify Price Option Cannot Be Selected
 
 Verify Unsuccessfully Sent Quote

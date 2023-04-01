@@ -7,7 +7,7 @@ Variables       ../data/product.yaml
 
 *** Variables ***
 # locators
-${enterproductdata_link}            id="enterproductdata"
+${enterproductdata_link}            id=enterproductdata
 ${enterproductdata_counter}         \#enterproductdata>.counter
 ${startdate_field}                  id=startdate
 ${insurancesum_field}               id=insurancesum
@@ -71,3 +71,6 @@ Enter Product Data And Go Next
 
 Verify Start Date Field Is Correctly Validated
     Get Text    ${enterproductdata_counter}    ==    1
+    Click     id=startdate >> .. >> .icon
+    Sleep     5
+    Wait For Elements State    "Must be more than one month in the future"   visible
