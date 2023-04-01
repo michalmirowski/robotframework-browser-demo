@@ -49,25 +49,25 @@ Enter Invalid Start Date
 
 Enter Product Data
     [Documentation]    By default enters product data with a valid start date of insurance, but flag can be overriden
-    [Arguments]    ${variant}    ${invalid_start_date}=False
+    [Arguments]    ${vehicle}    ${variant}    ${invalid_start_date}=False
     IF    ${invalid_start_date}
         Enter Invalid Start Date
     ELSE
         Enter Valid Start Date
     END
     Select Options By    ${insurancesum_field}    text    ${product.${variant}.insurancesum}
-    Select Options By    ${meritrating_field}    text    ${product.${variant}.meritrating}
     Select Options By    ${damageinsurance_field}    text    ${product.${variant}.damageinsurance}
     Check Multiple Checkboxes    ${optional_products_checkbox}    ${product.${variant}.optional_products}
-    Select Options By    ${courtesycar_field}    text    ${product.${variant}.courtesycar}
+# handle meritrating and courtesy car fields that are specific for Automobile
+    IF    "${vehicle}" == "automobile"
+        Select Options By    ${meritrating_field}    text    ${product.${variant}.meritrating}
+        Select Options By    ${courtesycar_field}    text    ${product.${variant}.courtesycar}
+    END
 
 Enter Product Data And Go Next
-    [Arguments]    ${variant}
-    Enter Product Data    ${variant}
+    [Arguments]    ${vehicle}    ${variant}
+    Enter Product Data    ${vehicle}    ${variant}
     Click Next
-
-Enter Product Data With Invalid Start Date
-    Enter Product Data    default    invalid_start_date=True
 
 Verify Start Date Field Is Correctly Validated
     Get Text    ${enterproductdata_counter}    ==    1

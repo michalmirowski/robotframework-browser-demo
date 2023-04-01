@@ -32,3 +32,14 @@ camper:
     annual_mileage: 100000
     total_weight: 2000
     payload: 800
+    right_hand_drive: "Yes"
+motorcycle:
+  default:
+    make: Suzuki
+    model: Motorcycle
+    cylinder_capacity: 800
+    engine_performance: 50
+    date_of_manufacture: 06/02/2020
+    number_of_seats: "1"
+    list_price: 50000
+    annual_mileage: 100000

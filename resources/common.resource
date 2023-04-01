@@ -13,7 +13,6 @@ Open Insurance Application
     New Browser    browser=${BROWSER}    headless=${HEADLESS}
     New Context    locale=en-GB
     New Page    http://sampleapp.tricentis.com/
-    Set Viewport Size    1920    1080
 
 Get Quote For ${vehicle}
     [Documentation]    Vehicle can be Automobile, Truck, Motorcycle, Camper

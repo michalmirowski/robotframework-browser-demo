@@ -10,6 +10,17 @@ insurant:
     city: Vienna
     occupation: Employee
     hobbies:
-      - Skydiving
       - Other
+  speeder:
+    firstname: Ana
+    lastname: Speeder
+    birthdate: 01/01/1985
+    gender: Female
+    streetaddress: Great Avenue
+    country: Poland
+    zipcode: 50000
+    city: Wroclaw
+    occupation: Employee
+    hobbies:
+      - Skydiving
       - Speeding

@@ -1,0 +1,22 @@
+price:
+  plans:
+    - Silver
+    - Gold
+    - Platinum
+    - Ultimate
+  Silver:
+    claim: "No"
+    discount: "No"
+    worldwide: "No"
+  Gold:
+    claim: Submit
+    discount: "2"
+    worldwide: Limited
+  Platinum:
+    claim: Submit
+    discount: "5"
+    worldwide: Limited
+  Ultimate:
+    claim: Submit
+    discount: "10"
+    worldwide: Unlimited
