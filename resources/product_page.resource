@@ -10,6 +10,8 @@ Variables       ../data/product.yaml
 ${enterproductdata_link}            id=enterproductdata
 ${enterproductdata_counter}         \#enterproductdata>.counter
 ${startdate_field}                  id=startdate
+${start_date_icon}                  id=startdate >> .. >> .icon
+${start_date warning}               "Must be more than one month in the future"
 ${insurancesum_field}               id=insurancesum
 ${meritrating_field}                id=meritrating
 ${damageinsurance_field}            id=damageinsurance
@@ -71,6 +73,5 @@ Enter Product Data And Go Next
 
 Verify Start Date Field Is Correctly Validated
     Get Text    ${enterproductdata_counter}    ==    1
-    Click     id=startdate >> .. >> .icon
-    Sleep     5
-    Wait For Elements State    "Must be more than one month in the future"   visible
+    Click    ${start_date_icon}
+    Wait For Elements State    ${start_date warning}    visible
