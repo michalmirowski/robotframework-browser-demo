@@ -1,0 +1,8 @@
+quote:
+  default:
+    phone: 123456789
+    username: Johnny
+    password: superSecret1
+    confirmpassword: superSecret1
+    email: test@example.com
+    comments: Just testing!
