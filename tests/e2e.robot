@@ -12,7 +12,7 @@ Suite Setup     Run Keywords
 
 
 *** Test Cases ***
-Create Quote For Automobile
+Create Quote For Automobile For Speeding Driver
     Get Quote For Automobile
     Enter Vehicle Data And Go Next    automobile    default
     Enter Insurant Data And Go Next    speeder
@@ -48,7 +48,7 @@ Create Quote For Camper
     Select Price Option And Go Next    gold
     Enter User Data And Send Quote Successfully
 
-Verify Minimal Start Date Validation
+Cannot Create Quote Due To Invalid Start Date
     [Setup]    Run Keywords
     ...    Get Quote For Automobile
     ...    AND    Enter Vehicle Data And Go Next    automobile    default
@@ -57,7 +57,7 @@ Verify Minimal Start Date Validation
     Verify Start Date Field Is Correctly Validated
     Verify Price Option Cannot Be Selected
 
-Verify Unsuccessfully Sent Quote
+Cannot Create Quote Due To Missing Quote Data
     [Setup]    Run Keywords
     ...    Get Quote For Automobile
     ...    AND    Enter Vehicle Data And Go Next    automobile    default
@@ -65,3 +65,10 @@ Verify Unsuccessfully Sent Quote
     ...    AND    Enter Product Data And Go Next    automobile    default
     ...    AND    Select Price Option And Go Next    platinum
     Enter Incomplete User Data And Send Quote Unsuccessfully
+
+Download Quote On Price Plans Page
+    Get Quote For Motorcycle
+    Enter Vehicle Data And Go Next    motorcycle    default
+    Enter Insurant Data And Go Next    default
+    Enter Product Data And Go Next    motorcycle    default
+    Download Quote

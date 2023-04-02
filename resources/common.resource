@@ -1,18 +1,22 @@
 *** Settings ***
-Library     Browser
+Documentation       Setup needed to run tests and common keywords that can be used on various pages
+Library             Browser
 
 
 *** Variables ***
-${BROWSER}      chromium
-${HEADLESS}     false
+# test setup
+${BROWSER}              chromium
+${HEADLESS}             false
+${URL}                  http://sampleapp.tricentis.com/
+${DOWNLOADS_PATH}       ${CURDIR}${/}downloads
 
 
 *** Keywords ***
 Open Insurance Application
     [Documentation]    Can be run on selected browser and in headless mode or not
-    New Browser    browser=${BROWSER}    headless=${HEADLESS}
+    New Browser    browser=${BROWSER}    headless=${HEADLESS}    downloadsPath=${DOWNLOADS_PATH}
     New Context    locale=en-GB
-    New Page    http://sampleapp.tricentis.com/
+    New Page    ${URL}
 
 Get Quote For ${vehicle}
     [Documentation]    Vehicle can be Automobile, Truck, Motorcycle, Camper
