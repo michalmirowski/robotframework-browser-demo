@@ -6,3 +6,11 @@ product:
     optional_products:
       - Euro Protection
     courtesycar: "No"
+  fullpackage:
+    insurancesum: 35.000.000,00
+    meritrating: Super Bonus
+    damageinsurance: Full Coverage
+    optional_products:
+      - Euro Protection
+      - Legal Defense Insurance
+    courtesycar: "Yes"
