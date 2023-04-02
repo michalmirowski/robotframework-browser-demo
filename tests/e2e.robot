@@ -67,8 +67,9 @@ Cannot Create Quote Due To Missing Quote Data
     Enter Incomplete User Data And Send Quote Unsuccessfully
 
 Download Quote On Price Plans Page
-    Get Quote For Motorcycle
-    Enter Vehicle Data And Go Next    motorcycle    default
-    Enter Insurant Data And Go Next    default
-    Enter Product Data And Go Next    motorcycle    default
+    [Setup]    Run Keywords
+    ...    Get Quote For Motorcycle
+    ...    AND    Enter Vehicle Data And Go Next    motorcycle    default
+    ...    AND    Enter Insurant Data And Go Next    default
+    ...    AND    Enter Product Data And Go Next    motorcycle    default
     Download Quote
