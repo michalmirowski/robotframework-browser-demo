@@ -8,7 +8,7 @@ Resource        ../resources/quote_page.resource
 
 Suite Setup     Run Keywords
 ...                 Set Log Level    TRACE
-...                 AND    Open Insurance Application    browser=chromium    headless=False
+...                 AND    Open Insurance Application
 
 
 *** Test Cases ***
