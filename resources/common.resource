@@ -1,12 +1,13 @@
 *** Settings ***
 Documentation       Setup needed to run tests and common keywords that can be used on various pages
 Library             Browser
+Library             String
 
 
 *** Variables ***
 # test setup
 ${BROWSER}              chromium
-${HEADLESS}             false
+${HEADLESS}             true
 ${URL}                  http://sampleapp.tricentis.com/
 ${DOWNLOADS_PATH}       ${CURDIR}${/}downloads
 
@@ -20,7 +21,8 @@ Open Insurance Application
 
 Get Quote For ${vehicle}
     [Documentation]    Vehicle can be Automobile, Truck, Motorcycle, Camper
-    Click    .main-navigation>.menu>.menu-item>[name="Navigation ${vehicle}"]
+    ${vehicle}=    Convert To Lower Case    ${vehicle}
+    Click    .main-navigation>.menu>.menu-item>#nav_${vehicle}
 
 Click Next
     [Documentation]    Common next screen action used on most pages

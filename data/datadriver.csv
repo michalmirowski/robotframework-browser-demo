@@ -1,0 +1,17 @@
+*** Test Cases ***;${vehicle_variant};${vehicle_type};${insurant_variant};${product_variant};${price_option}
+;default;automobile;default;fullpackage;silver
+;vintage;automobile;speeder;default;gold
+;vintage;automobile;default;default;platinum
+;default;automobile;speeder;fullpackage;ultimate
+;default;truck;default;fullpackage;silver
+;vintage;truck;speeder;default;gold
+;vintage;truck;default;default;platinum
+;default;truck;speeder;fullpackage;ultimate
+;default;motorcycle;default;fullpackage;silver
+;vintage;motorcycle;speeder;default;gold
+;vintage;motorcycle;default;default;platinum
+;default;motorcycle;speeder;fullpackage;ultimate
+;default;camper;default;fullpackage;silver
+;vintage;camper;speeder;default;gold
+;vintage;camper;default;default;platinum
+;default;camper;speeder;fullpackage;ultimate
