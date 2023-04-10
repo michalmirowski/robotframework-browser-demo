@@ -11,7 +11,7 @@ All tests were prepared for [Vehicle Insurance Application](http://sampleapp.tri
 
 # Project structure
 
-Project is organized as an adaptation of [page object pattern](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html) in Robot Framework, utilizing its benefits of an easy split between technical and business layers. 
+Project is organized as an adaptation of [page object pattern](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html) in Robot Framework, utilizing its ability to separate the technical and business layers. 
 
 `resources` folder contains all locators and keywords defining actions to be taken on each page, `tests` - test suites, `data` - all test data put in a .yaml file for each page, easily maintainable/extendable.
 
