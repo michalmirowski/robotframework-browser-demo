@@ -37,10 +37,10 @@ Verify Price Plans Cell
     Get Text    ${e}    ==    ${expected}
 
 Verify Data In Price Plans Table
-    FOR    ${plan}    IN    @{price.plans}
-        Verify Price Plans Cell    ${plan}    Online Claim    ${price.${plan}.claim}
-        Verify Price Plans Cell    ${plan}    Claims Discount (%)    ${price.${plan}.discount}
-        Verify Price Plans Cell    ${plan}    Worldwide Cover    ${price.${plan}.worldwide}
+    FOR    ${option}    IN    @{price}
+        Verify Price Plans Cell    ${option}    Online Claim    ${price.${option}.claim}
+        Verify Price Plans Cell    ${option}    Claims Discount (%)    ${price.${option}.discount}
+        Verify Price Plans Cell    ${option}    Worldwide Cover    ${price.${option}.worldwide}
     END
 
 Verify Price Option Cannot Be Selected

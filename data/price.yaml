@@ -1,9 +1,4 @@
 price:
-  plans:
-    - Silver
-    - Gold
-    - Platinum
-    - Ultimate
   Silver:
     claim: "No"
     discount: "No"
